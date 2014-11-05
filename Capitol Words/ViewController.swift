@@ -32,17 +32,21 @@ class ViewController: UITableViewController {
     }
 
     func fetchDataForNextPage() {
-        let api = "http://capitolwords.org/api/1/phrases.json?entity_type=month&entity_value=\(self.year)\(self.month)&sort=count%20desc&apikey=1a6674315e404f6f8ddcfa76aab4bad7&page=\(self.pageNum)"
+        if(NetworkReachability.isNetworkReachable()) {
+            let api = "http://capitolwords.org/api/1/phrases.json?entity_type=month&entity_value=\(self.year)\(self.month)&sort=count%20desc&apikey=1a6674315e404f6f8ddcfa76aab4bad7&page=\(self.pageNum)"
         
-        let url = NSURL(string:api)
-        var session = NSURLSession.sharedSession()
+            let url = NSURL(string:api)
+            var session = NSURLSession.sharedSession()
         
-        var task:NSURLSessionDataTask = session.dataTaskWithURL(url!, completionHandler:apiCompletionHandler)
+            var task:NSURLSessionDataTask = session.dataTaskWithURL(url!, completionHandler:apiCompletionHandler)
         
-        task.resume()
-        println("api call started")
+            task.resume()
+            println("api call started")
         
-        self.pageNum = self.pageNum + 1
+            self.pageNum = self.pageNum + 1
+        } else {
+            NetworkReachability.showNetworkUnreachableAlert()
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -93,13 +97,13 @@ class ViewController: UITableViewController {
         
         var jsonError:NSError?
         
-        let json:NSMutableArray! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSMutableArray!
-    
         if (jsonError != nil) {
             println("Error parsing json: \(jsonError)")
         }
         else {
             println("api call completed")
+            
+            let json:NSMutableArray! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSMutableArray!
             
             for item in json {
                 self.data.append(item)

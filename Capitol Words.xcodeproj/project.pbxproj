@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB70714C1A09FA5A00285EC3 /* NetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB70714B1A09FA5A00285EC3 /* NetworkReachability.swift */; };
+		CB7071501A0A003800285EC3 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = CB70714F1A0A003800285EC3 /* Reachability.m */; };
 		CBAEFEED1A04A47B00F21445 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAEFEEC1A04A47B00F21445 /* AppDelegate.swift */; };
 		CBAEFEEF1A04A47B00F21445 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAEFEEE1A04A47B00F21445 /* ViewController.swift */; };
 		CBAEFEF21A04A47B00F21445 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBAEFEF01A04A47B00F21445 /* Main.storyboard */; };
@@ -28,6 +30,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CB70714B1A09FA5A00285EC3 /* NetworkReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachability.swift; sourceTree = "<group>"; };
+		CB70714D1A0A003700285EC3 /* Capitol Words-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Capitol Words-Bridging-Header.h"; sourceTree = "<group>"; };
+		CB70714E1A0A003800285EC3 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		CB70714F1A0A003800285EC3 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		CBAEFEE71A04A47B00F21445 /* Capitol Words.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Capitol Words.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBAEFEEB1A04A47B00F21445 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBAEFEEC1A04A47B00F21445 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,9 +66,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CB70714A1A09FA3100285EC3 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				CB70714B1A09FA5A00285EC3 /* NetworkReachability.swift */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
 		CBAEFEDE1A04A47B00F21445 = {
 			isa = PBXGroup;
 			children = (
+				CB70714A1A09FA3100285EC3 /* Common */,
 				CBE78F661A0980380016A0D2 /* View Controllers */,
 				CBAEFEE91A04A47B00F21445 /* Capitol Words */,
 				CBAEFEFF1A04A47B00F21445 /* Capitol WordsTests */,
@@ -94,7 +109,10 @@
 		CBAEFEEA1A04A47B00F21445 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CB70714E1A0A003800285EC3 /* Reachability.h */,
+				CB70714F1A0A003800285EC3 /* Reachability.m */,
 				CBAEFEEB1A04A47B00F21445 /* Info.plist */,
+				CB70714D1A0A003700285EC3 /* Capitol Words-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -229,6 +247,8 @@
 				CBE78F621A0696280016A0D2 /* DetailViewController.swift in Sources */,
 				CBAEFEEF1A04A47B00F21445 /* ViewController.swift in Sources */,
 				CBE78F651A0736910016A0D2 /* DateSelectorViewController.swift in Sources */,
+				CB70714C1A09FA5A00285EC3 /* NetworkReachability.swift in Sources */,
+				CB7071501A0A003800285EC3 /* Reachability.m in Sources */,
 				CBAEFEED1A04A47B00F21445 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,9 +372,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Capitol Words/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Capitol Words/Capitol Words-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -362,9 +385,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Capitol Words/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Capitol Words/Capitol Words-Bridging-Header.h";
 			};
 			name = Release;
 		};

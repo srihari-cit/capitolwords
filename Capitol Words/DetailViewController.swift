@@ -49,12 +49,12 @@ class DetailViewController: UIViewController {
         
         var jsonError:NSError?
         
-        let json:NSArray = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSArray
-        
         if (jsonError != nil) {
             println("Error parsing json: \(jsonError)")
         }
         else {
+            let json:NSArray = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSArray
+            
             var length = json[0]["length"] as Int
             
             dispatch_async(dispatch_get_main_queue(), {
