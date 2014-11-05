@@ -31,6 +31,7 @@ class ViewController: UITableViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    //load data with pagination support
     func fetchDataForNextPage() {
         if(NetworkReachability.isNetworkReachable()) {
             let api = "http://capitolwords.org/api/1/phrases.json?entity_type=month&entity_value=\(self.year)\(self.month)&sort=count%20desc&apikey=1a6674315e404f6f8ddcfa76aab4bad7&page=\(self.pageNum)"

@@ -11,15 +11,6 @@ import Foundation
 
 var alert : UIAlertView!
 
-/*
-struct alertVisibility {
-    static var visible : Bool = false
-    static var computedTypeProperty: Int {
-        // return an Int value here
-    }
-}
-*/
-
 public class NetworkReachability {
     class func isNetworkReachable() -> Bool {
         let reachability: Reachability = Reachability.reachabilityForInternetConnection()
